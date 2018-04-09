@@ -50,6 +50,7 @@ export default class App extends Component {
             isUserCheckedIn: false,
             loadingLocation: false,
             isCheckInModalOpen: false,
+            isMarkerShown: false,
             isAllowGeoLocationModalOpen: true,
             user: {
                 ...createUserData(),
@@ -84,7 +85,8 @@ export default class App extends Component {
                     lat: coords.latitude,
                     long: coords.longitude,
                 },
-            }
+            },
+            isMarkerShown: true
         });
     };
 
@@ -178,7 +180,6 @@ export default class App extends Component {
 
         return (
             <div className="app-root">
-                <p className="App-intro">{user.response}</p>
                 <h1 className="text-center">Check-In Yourself</h1>
 
                 {
@@ -196,7 +197,7 @@ export default class App extends Component {
                     googleMapURL={Config.googleMapURL}
                     long={user.currentPosition.long}
                     lat={user.currentPosition.lat}
-                    isMarkerShown
+                    isMarkerShown={this.state.isMarkerShown}
                 />
 
                 <div className="text-center separator-container">
