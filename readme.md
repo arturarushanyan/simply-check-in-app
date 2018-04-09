@@ -12,7 +12,7 @@ Also you will need globally install Nodemon
     $ cd client
     $ npm install
 
-First npm install should sole the second install. However on some OS it can throw an error. In that case you can manually cd in client folder and run npm install
+First npm install should solve the second install wit --prefix. However on some OS-es it can throw an error. In that case you can manually cd in client folder and run npm install
 
 ## Start & watch
 
@@ -25,17 +25,28 @@ First npm install should sole the second install. However on some OS it can thro
 ## Project Structure
 
 client - front end related code
-    public - public served files
-    src - project front end source code
-       api - api for REST operations
-       components = project's ReactJS components
-       config - configuration file
-       fonts - fonts for the project
-       global-constants - global constants used in app
-       helpers - helper functions
-       styles - app styles
+
+public - public served files
+
+client/src - project front end source code
+
+client/api - api for REST operations
+
+client/components = project's ReactJS components
+
+client/config - configuration file
+
+client/fonts - fonts for the project
+
+client/global-constants - global constants used in app
+
+client/helpers - helper functions
+
+client/styles - app styles
 
 server - back end related code here
-    constants - constants used in aplication (like messages,ect...)
-    models - mongoose models for database model
+
+server/constants - constants used in aplication (like messages,ect...)
+
+server/models - mongoose models for database model
 
