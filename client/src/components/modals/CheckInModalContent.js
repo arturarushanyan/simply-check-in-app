@@ -19,7 +19,7 @@ export default (props) => {
 
                 {!props.isUserNameValid && (
                     <p className="text-danger">
-                        User name must contain only letters and should be contain max 50 chars long
+                        User name must contain only letters and be at least 2 but not more 50 chars long
                     </p>
                 )}
             </div>

@@ -191,9 +191,9 @@ export default class App extends Component {
                 }
 
                 <MapComponent
-                    loadingElement={<div className="loadingElement"/>}
-                    containerElement={<div className="containerElement"/>}
-                    mapElement={<div className="mapElement"/>}
+                    loadingElement={<div className="loading-element"/>}
+                    containerElement={<div className="container-element"/>}
+                    mapElement={<div className="map-element"/>}
                     googleMapURL={Config.googleMapURL}
                     long={user.currentPosition.long}
                     lat={user.currentPosition.lat}

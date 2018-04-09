@@ -13,11 +13,11 @@ html, body {
     margin: 0 auto;
 }
 
-.loadingElement, .mapElement {
+.loading-element, .map-element {
     height: 100%;
 }
 
-.containerElement {
+.container-element {
     height: 400px;
 }
 
