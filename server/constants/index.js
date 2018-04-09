@@ -1,0 +1,19 @@
+const ERROR = 'ERROR !!!';
+
+const USER_ERR = `${ERROR} USER`;
+const USER_FIND_ONE = `${USER_ERR} FIND ONE`;
+
+const ADD_USER = 'ADD USER';
+const ERR_ADD_USER = `${ERROR} ${ADD_USER}`;
+
+const CHECKED_IN_USERS = 'CHECKED_IN_USERS';
+const ERR_CHECKED_IN_USERS = `${ERROR} ${CHECKED_IN_USERS}`;
+
+module.exports = {
+    ERR_CHECKED_IN_USERS,
+    CHECKED_IN_USERS,
+    USER_FIND_ONE,
+    ERR_ADD_USER,
+    USER_ERR,
+    ADD_USER,
+};

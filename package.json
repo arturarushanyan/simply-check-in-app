@@ -1,0 +1,22 @@
+{
+  "name": "check-in-app",
+  "version": "1.0.0",
+  "author": "Artur Arushanyan",
+  "scripts": {
+    "postinstall": "npm install --prefix client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "server": "cd server && nodemon server.js",
+    "devserver": "cd server && ../node_modules/nodemon/bin/nodemon.js server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.13",
+    "nodemon": "^1.17.3",
+    "short-unique-id": "^1.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
