@@ -23,5 +23,6 @@ export const getDistance = (lat1, lon1, lat2, lon2) => {
 
 // basic form validation
 export const validateInput = (value) => {
+    console.log("validatevalue",value);
     return value.match(/^[a-zA-Z]{2,50}$/);
 };

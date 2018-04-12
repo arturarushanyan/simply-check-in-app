@@ -26,21 +26,6 @@ import '../styles/styles.css';
 
 const rootElement = document.getElementById('root');
 
-const createUserData = (userName) => {
-    console.log('LOG -->  userName', userName);
-    console.log("LOG -->  localStorage.getItem('userName')", localStorage.getItem('userName'));
-    const newUserData = {
-        name: userName || localStorage.getItem('userName') || '',
-    };
-
-    console.log('LOG -->  newUserData.name', newUserData.name);
-    console.log('LOG -->  validateInput(newUserData.name)', validateInput(newUserData.name));
-    return {
-        ...newUserData,
-        isUserNameValid: !!validateInput(newUserData.name),
-    };
-};
-
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -53,7 +38,8 @@ export default class App extends Component {
             isMarkerShown: false,
             isAllowGeoLocationModalOpen: true,
             user: {
-                ...createUserData(),
+                name: localStorage.getItem('userName') ? localStorage.getItem('userName') : '',
+                isUserNameValid: true,
                 currentPosition: {
                     lat: 40.1792,
                     long: 44.4991,
@@ -117,10 +103,10 @@ export default class App extends Component {
         const { user } = this.state;
 
         // storing the username to local storage
-        localStorage.setItem('userName', user.userName);
+        localStorage.setItem('userName', user.name);
 
         const newData = {
-            name: user.userName,
+            name: user.name,
             lat: user.currentPosition.lat,
             long: user.currentPosition.long
         };
@@ -166,7 +152,8 @@ export default class App extends Component {
         this.setState({
             user: {
                 ...this.state.user,
-                ...createUserData(target.value),
+                name: target.value,
+                isUserNameValid: !!validateInput(target.value)
             }
         });
     };
@@ -239,7 +226,7 @@ export default class App extends Component {
                 >
                     {isCheckInModalOpen && (
                         <CheckInModalContent
-                            userName={user.userName}
+                            userName={user.name}
                             handleCheckIn={this.handleCheckIn}
                             handleCancelCheckIn={this.closePopups}
                             isUserNameValid={user.isUserNameValid}

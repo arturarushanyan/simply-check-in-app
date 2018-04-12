@@ -78,22 +78,22 @@ app.post(CHECKIN, ({ body }, res) => {
                     }
                 });
             }
+        })
+        .exec()
+        .then(() => {
+            //sending users list back to client in order to be able to see near-by check-ins
+            CheckedInUser.find(
+                {},
+                (err, users) => {
+                    if (err) {
+                        sendData(res, err, ERR_CHECKED_IN_USERS);
+                    } else {
+                        sendData(res, JSON.stringify(users), CHECKED_IN_USERS);
+                    }
+                })
         });
 
-    //sending users list back to client in order to be able to see near-by check-ins
-    CheckedInUser.find(
-        {
-            name: {
-                $ne: newUser.name,
-            }
-        },
-        (err, users) => {
-            if (err) {
-                sendData(res, err, ERR_CHECKED_IN_USERS);
-            } else {
-                sendData(res, JSON.stringify(users), CHECKED_IN_USERS);
-            }
-        })
+
 
 });
 

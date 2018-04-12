@@ -3,14 +3,13 @@ import moment from 'moment';
 
 //List that renders near-by check-in data
 export default (props) => {
-    const checkInData = [...props.data];
     return (
       <div className="recent-check-ins">
           <h4 className="text-center">Recent check-ins nearby</h4>
           <table className="table">
               <tbody>
               {
-                  checkInData.map((user)=> {
+                  props.data.map((user)=> {
                       const hoursDiff = moment.duration(moment().diff(user.checkInTime)).asHours();
                       return (
                           <tr key={user.id}>
